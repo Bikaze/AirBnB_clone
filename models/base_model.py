@@ -21,7 +21,7 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        '' A function that  returns a dictionary with all keys of __dict__ of the instance '''
+        ''' A function that  returns a dictionary with all keys of __dict__ of the instance '''
         dic = self.__dict__.copy()
         dic['__class__'] = self.__class__.__name__
         dic['created_at'] = self.created_at.isoformat()
