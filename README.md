@@ -22,9 +22,9 @@ following steps: HTML/CSS templating, database storage, API, front-end integrati
 
 **What will be the Use of this Console?**
 
--To create your data model
--Manage (create, update, destroy, etc) objects via a console / command interpreter
--Store and persist objects to a file (JSON file)
+- To create your data model
+- Manage (create, update, destroy, etc) objects via a console / command interpreter
+- Store and persist objects to a file (JSON file)
 
 The first piece is to manipulate a powerful storage system. This storage engine will give us an abstraction between “My object” and “How they are stored and persisted”. This means: from your console code (the command interpreter itself) and from the front-end and RestAPI, you won’t have to pay attention (take care) of how your objects are stored.
 
@@ -33,7 +33,7 @@ This abstraction will also allow you to change the type of storage easily withou
 The console will be a tool to validate this storage engine
 
 <p align="center">
-    <img src="">
+    <img src="https://github.com/Bikaze/AirBnB_clone/blob/main/misc_stuff/console.png" alt="Console_storage link">
 </p>
 
 **How to use the Console?**
