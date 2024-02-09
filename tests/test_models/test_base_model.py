@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import unittest
 from models.base_model import BaseModel
 from datetime import datetime
@@ -24,10 +26,4 @@ class TestBaseModel(unittest.TestCase):
 		second_one = BaseModel()
 
 		# Checking if the ids are different
-		self.assertNotEqual(first_one.id, second_one.id)
-
-    def test __str__(self):
-        
-
-if __name__ == '__main__':
-	unittest.main()
+		self.assertNotEqual(first_one.id, second_one.id) 
