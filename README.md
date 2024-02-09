@@ -3,6 +3,16 @@
 </p>
 
 <h1 align="center">HolbertonBnB</h1>
-<p color="red">An AirBnB clone.</p>
+<p align="center">AirBnB clone.</p>
+
+--
+
+## Project Description
+
+This project is a clone of the Famous "AirBnB" website (But it doesn't exactly look like it :))
+hbnb(this project) is a fully fledged Web application, with a database storage, a back-end API, and front-end interfacing in a clone of AirBnB.
+
+**Currently**
+- The project implements the back-end console
 
 
