@@ -9,7 +9,7 @@
 
 ## Project Description
 
-This project is a clone of the Famous "AirBnB" website (But it doesn't exactly look like it :smile:)
+This project is a clone of the Famous "AirBnB" website (But it doesn't exactly look like it :smile:)<br>
 Hbnb(this project) is a fully fledged Web application, with a database storage, a back-end API, and front-end interfacing in a clone of AirBnB.
 
 **Currently**
