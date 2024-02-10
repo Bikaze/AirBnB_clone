@@ -7,6 +7,7 @@ import cmd
 import json
 import uuid
 from models.base_model import BaseModel
+from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """This is a Cmd subclass representing our command interpreter"""
@@ -34,18 +35,12 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        try:
-            class_name = arg.split()[0]
-            module = __import__('models.' + class_name, fromlist=[class_name])
-            class_ = getattr(module, class_name)
-
-        except (ImportError, AttributeError):
+        args = arg.split()
+        class_repr = globals().get(args[0]) 
+        if len(args) != 1 or class_repr is None:
             print("** class doesn't exist **")
-            return
-
-        instance = class_()
-        instance.save()
-        print(instance.id)
+        else:
+            class_obj = class_repr()
 
     def do_show(self, arg):
         '''
@@ -66,30 +61,15 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return
 
-        class_name, obj_id = args[0], args[1]
-
-        try:
-            module = __import__('models.' + class_name, fromlist=[class_name])
-            class_ = getattr(module, class_name)
-        except (ImportError, AttributeError):
-            print("** class doesn't exist **")
-            return
-
-        filename = "file.json"
-        try:
-            with open(filename, 'r') as file:
-                data = json.load(file)
-        except FileNotFoundError:
+        key = args[0] + '.' + args[1]
+        objects = storage.all()
+        obj = objects.get(key)
+        
+        if not obj:
             print("** no instance found **")
             return
-
-        instance_key = "{}.{}".format(class_name, obj_id)
-        if instance_key in data:
-            # Create an instance and print its string representation
-            instance = class_(**data[instance_key])
-            print(instance)
         else:
-            print("** no instance found **")
+            print(obj)
 
     def do_destroy(self, arg):
         '''
@@ -110,30 +90,16 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return
 
-        class_name, obj_id = args[0], args[1]
+        key = args[0] + '.' + args[1]
+        objects = storage.all()
+        obj = objects.get(key)
 
-        try:
-            module = __import__('models.' + class_name, fromlist=[class_name])
-            class_ = getattr(module, class_name)
-        except (ImportError, AttributeError):
-            print("** class doesn't exist **")
-            return
-
-        filename = "file.json"
-        try:
-            with open(filename, 'r') as file:
-                data = json.load(file)
-        except FileNotFoundError:
+        if not obj:
             print("** no instance found **")
             return
-
-        instance_key = "{}.{}".format(class_name, obj_id)
-        if instance_key in data:
-            del data[instance_key]
-            with open(filename, 'w') as file:
-                json.dump(data, file)
         else:
-            print("** no instance found **")
+            del objects[key]
+            storage.save()
 
     def do_all(self, arg):
         '''
@@ -141,34 +107,18 @@ class HBNBCommand(cmd.Cmd):
         based or not on the class name.
         Usage: $ all <Class name> or $ all
         '''
-        filename = "file.json"
-
-        try:
-            with open(filename, 'r') as file:
-                data = json.load(file)
-        except FileNotFoundError:
-            data = {}
-
-        if not arg:
-            for key, value in data.items():
-                class_name, obj_id = key.split('.')
-                module = __import__('models.' + class_name, fromlist=[class_name])
-                class_ = getattr(module, class_name)
-                instance = class_(**value)
-                print(instance)
+        
+        args = arg.split()
+        objects = storage.all()
+        if len(args) > 1 or (len(args) == 1 and globals().get(args[0]) is None):
+            print("** class doesn't exist **")
+            return
         else:
-            try:
-                class_name = arg.split()[0]
-                module = __import__('models.' + class_name, fromlist=[class_name])
-                class_ = getattr(module, class_name)
-            except (ImportError, AttributeError):
-                print("** class doesn't exist **")
-                return
-
-            for key, value in data.items():
-                if key.startswith(class_name):
-                    instance = class_(**value)
-                    print(instance)
+            for key, value in objects.items():
+                if len(args) == 1 and key.split('.')[0] != args[0]:
+                    pass
+                else:
+                    print(value)
 
     def do_update(self, arg):
         '''
