@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import uuid
 from datetime import datetime
+from models import storage
 
 
 class BaseModel:
@@ -19,6 +20,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            storage.new(self)
 
     def __str__(self):
         '''A function to print the name of the class '''
@@ -28,6 +30,7 @@ class BaseModel:
     def save(self):
         ''' A function to update the public attribute update_at '''
         self.updated_at = datetime.now()
+        storage.new(self)
 
     def to_dict(self):
         ''' A function that  returns a dictionary with all keys
