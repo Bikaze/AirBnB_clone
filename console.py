@@ -22,5 +22,35 @@ class HBNBCommand(cmd.Cmd):
         """Should do nothing when Enter key is pressed"""
         pass
 
+    def de_create(self, arg):
+        '''
+            A function Creates a new instance of BaseModel,
+            saves it (to the JSON file) and prints the id
+        '''
+        if not arg:
+            print("** class name is missing **")
+            return
+
+        try:
+            class_name = arg.split[0]
+            module = import('models.'+class_name, fromlist=[class_name])
+            class_ = gettattr(module, class_name)
+
+        except (ImportError, AttributeError):
+            print("** class doesn't exist **")
+            return
+
+        instance = class_()
+        f_name = "fiile.json"
+
+        with open(f_name, 'a') as file:
+            obj_dict = instance.to_dict()
+            obj_dict["id"] = str(uuid.uuid4())
+            json.dump(obj_dict["id"]
+
+    def do_show(self, arg):
+        '''
+            A function that 
+        '''
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
