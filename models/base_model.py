@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 import uuid
 from datetime import datetime
+"""
+This file contains one class 'BaseModel'
+"""
 
 
 class BaseModel:
