@@ -2,6 +2,9 @@
 import uuid
 from datetime import datetime
 from models import storage
+"""
+This file contains one class 'BaseModel'
+"""
 
 
 class BaseModel:
