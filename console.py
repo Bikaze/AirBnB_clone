@@ -173,5 +173,17 @@ class HBNBCommand(cmd.Cmd):
             setattr(objects[key], args[2], value)
             objects[key].save()
 
+    def default(self, line):
+        args = line.split('.')
+        if globals().get(args[0]) and len(args) > 1:
+            if args[1] == 'all()':
+                self.do_all(args[0])
+            elif args[1] == 'count()':
+                count = 0
+                for key, value in storage.all().items():
+                    if key.split('.')[0] == args[0]:
+                        count += 1
+                print(count)
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
