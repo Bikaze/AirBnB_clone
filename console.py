@@ -53,9 +53,6 @@ class HBNBCommand(cmd.Cmd):
         and the id given
         Usage: $ show <Class name> <id>
         '''
-        if not arg:
-            print("** class name missing **")
-            return
 
         args = arg.split()
 
@@ -184,6 +181,9 @@ class HBNBCommand(cmd.Cmd):
                     if key.split('.')[0] == args[0]:
                         count += 1
                 print(count)
+            elif args[1][:4] == 'show':
+                id = args[1].strip('"()show')
+                self.do_show(args[0] + " " + id)
         else:
             print("** Unknown syntax:", line)
 
