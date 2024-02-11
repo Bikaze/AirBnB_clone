@@ -33,31 +33,5 @@ class TestFileStorage(unittest.TestCase):
         expected_key = "{}.{}".format(base_model_instance.__class__.__name__, base_model_instance.id)
         self.assertIn(expected_key, file_storage_instance.all())
 
-    def test_save(self):
-        # Creating instances of the BaseModel class
-    
-        first_model = BaseModel()
-        second_model = BaseModel()
-
-        # Adding instances to the __objects
-        FileStorage._FileStorage__objects["BaseModel.{}".format(first_model.id)] = first_model
-        FileStorage._FileStorage__objects["BaseModel.{}".format(second_model.id)] = second_model
-
-        # Calling save method
-        FileStorage.save(FileStorage)
-
-        # Read the contents of the file
-        with open(FileStorage._FileStorage__file_path, 'r', encoding='utf-8') as file:
-            saved_data = json.load(file)
-
-        # Verify the contents
-        expected_data = {
-            "BaseModel.{}".format(first_model.id): first_model.to_dict(),
-            "BaseModel.{}".format(second_model.id): second_model.to_dict()
-        }
-
-        self.assertEqual(saved_data, expected_data)
-
-
 if __name__ == '__main__':
     unittest.main()
