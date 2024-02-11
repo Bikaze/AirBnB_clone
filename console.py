@@ -126,17 +126,24 @@ class HBNBCommand(cmd.Cmd):
         by adding or updating an attribute (save the change into the JSON file).
         Usage: $ update <Class name> <id> <attribute name> "<attribute value>"
         '''
-        if not arg:
-            print("** class name missing **")
-            return
-
         args = arg.split()
 
         if len(args) == 0:
             print("** class name missing **")
             return
+        if not globals().get(args[0]):
+            print("** class doesn't exist **")
+            return
         if len(args) == 1:
             print("** instance id missing **")
+            return
+
+        key = args[0] + '.' + args[1]
+        objects = storage.all()
+        obj = objects.get(key)
+
+        if not obj:
+            print("** no instance found **")
             return
         if len(args) == 2:
             print("** attribute name missing **")
@@ -145,30 +152,8 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return
 
-        class_name, obj_id, attr_name, attr_value = args[0], args[1], args[2], args[3]
-
-        try:
-            module = __import__('models.' + class_name, fromlist=[class_name])
-            class_ = getattr(module, class_name)
-        except (ImportError, AttributeError):
-            print("** class doesn't exist **")
-            return
-
-        filename = "file.json"
-        try:
-            with open(filename, 'r') as file:
-                data = json.load(file)
-        except FileNotFoundError:
-            print("** no instance found **")
-            return
-
-        instance_key = "{}.{}".format(class_name, obj_id)
-        if instance_key in data:
-            instance = class_(**data[instance_key])
-            setattr(instance, attr_name, attr_value.strip('"'))
-            instance.save()
-        else:
-            print("** no instance found **")
+        setattr(objects[key], args[2], args[3])
+        objects[key].save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
