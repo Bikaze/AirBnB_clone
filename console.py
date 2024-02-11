@@ -184,6 +184,8 @@ class HBNBCommand(cmd.Cmd):
                     if key.split('.')[0] == args[0]:
                         count += 1
                 print(count)
+        else:
+            print("** Unknown syntax:", line)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
