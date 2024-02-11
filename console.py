@@ -179,11 +179,17 @@ class HBNBCommand(cmd.Cmd):
                         count += 1
                 print(count)
             elif args[1][:4] == 'show':
-                id = args[1].strip('"()show')
+                id = args[1].strip('"()\'show')
                 self.do_show(args[0] + " " + id)
             elif args[1][:7] == 'destroy':
-                id = args[1].strip('"()destroy')
+                id = args[1].strip('"()\'destroy')
                 self.do_destroy(args[0] + " " + id)
+            elif args[1][:6] == 'update':
+                pars = args[1].strip('update"\'()').split(', ')
+                ar = ""
+                for argument in pars:
+                    ar += " " + argument.strip('"\'')
+                self.do_update(args[0] + ar)
         else:
             print("** Unknown syntax:", line)
 
