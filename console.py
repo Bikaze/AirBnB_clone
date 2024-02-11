@@ -79,9 +79,6 @@ class HBNBCommand(cmd.Cmd):
         (save the change into the JSON file).
         Usage: $ destroy <Class name> <id>
         '''
-        if not arg:
-            print("** class name missing **")
-            return
 
         args = arg.split()
 
@@ -184,6 +181,9 @@ class HBNBCommand(cmd.Cmd):
             elif args[1][:4] == 'show':
                 id = args[1].strip('"()show')
                 self.do_show(args[0] + " " + id)
+            elif args[1][:7] == 'destroy':
+                id = args[1].strip('"()destroy')
+                self.do_destroy(args[0] + " " + id)
         else:
             print("** Unknown syntax:", line)
 
