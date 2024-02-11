@@ -1,5 +1,6 @@
 __pycache__
 ch
+*.json
 ~/alx/AirBnB_clone/*.py
 ~/Desktop/Coding/Alx/AirBnB_clone/*.py
 ~/Desktop/Coding/Alx/AirBnB_clone/*.swp

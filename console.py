@@ -41,6 +41,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             class_obj = class_repr()
+            print(class_obj.id)
 
     def do_show(self, arg):
         '''
@@ -114,11 +115,13 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         else:
+            all_objects = []
             for key, value in objects.items():
                 if len(args) == 1 and key.split('.')[0] != args[0]:
                     pass
                 else:
-                    print(value)
+                    all_objects.append(value.__str__())
+            print(all_objects)
 
     def do_update(self, arg):
         '''
@@ -152,8 +155,19 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return
 
-        setattr(objects[key], args[2], args[3])
-        objects[key].save()
+        value = args[3]
+        if value.replace('.', '', 1).isnumeric():
+            if value.replace('.', '', 1) == value:
+                value = int(value)
+            else:
+                value = float(value)
+        else:
+            if value[0] == '"' and value[-1] == '"':
+                value = value.strip('"')
+            if value[0] == "'" and value[-1] == "'":
+                value = value.strip("'")
+            setattr(objects[key], args[2], value)
+            objects[key].save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
