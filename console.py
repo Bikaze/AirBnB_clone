@@ -13,6 +13,7 @@ from models.review import Review
 from models.state import State
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """This is a Cmd subclass representing our command interpreter"""
     prompt = "(hbnb) "
@@ -40,7 +41,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         args = arg.split()
-        class_repr = globals().get(args[0]) 
+        class_repr = globals().get(args[0])
         if len(args) != 1 or class_repr is None:
             print("** class doesn't exist **")
         else:
@@ -66,7 +67,7 @@ class HBNBCommand(cmd.Cmd):
         key = args[0] + '.' + args[1]
         objects = storage.all()
         obj = objects.get(key)
-        
+
         if not obj:
             print("** no instance found **")
             return
@@ -106,10 +107,11 @@ class HBNBCommand(cmd.Cmd):
         based or not on the class name.
         Usage: $ all <Class name> or $ all
         '''
-        
+
         args = arg.split()
         objects = storage.all()
-        if len(args) > 1 or (len(args) == 1 and globals().get(args[0]) is None):
+        if len(args) > 1 or (len(args) == 1 and
+                             globals().get(args[0]) is None):
             print("** class doesn't exist **")
             return
         else:
@@ -124,7 +126,8 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, arg):
         '''
         A function that updates an instance based on the class name and id
-        by adding or updating an attribute (save the change into the JSON file).
+        by adding or updating an attribute (save the change into the
+        JSON file).
         Usage: $ update <Class name> <id> <attribute name> "<attribute value>"
         '''
         args = arg.split()
@@ -192,6 +195,7 @@ class HBNBCommand(cmd.Cmd):
                 self.do_update(args[0] + ar)
         else:
             print("** Unknown syntax:", line)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
