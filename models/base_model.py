@@ -27,8 +27,7 @@ class BaseModel:
     def __str__(self):
         '''A function to print the name of the class '''
         name = self.__class__.__name__
-        if self.__dict__:
-            return "[{}] ({}) {}".format(name, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(name, self.id, self.__dict__)
 
     def save(self):
         ''' A function to update the public attribute update_at '''
