@@ -27,7 +27,8 @@ class BaseModel:
     def __str__(self):
         '''A function to print the name of the class '''
         name = self.__class__.__name__
-        return "[{}] ({}) {}".format(name, self.id, self.__dict__)
+        if self.__dict__:
+            return "[{}] ({}) {}".format(name, self.id, self.__dict__)
 
     def save(self):
         ''' A function to update the public attribute update_at '''
@@ -38,7 +39,8 @@ class BaseModel:
         ''' A function that  returns a dictionary with all keys
         of __dict__ of the instance'''
         dic = self.__dict__.copy()
-        dic['__class__'] = self.__class__.__name__
-        dic['created_at'] = self.created_at.isoformat()
-        dic['updated_at'] = self.updated_at.isoformat()
+        if dic:
+            dic['__class__'] = self.__class__.__name__
+            dic['created_at'] = self.created_at.isoformat()
+            dic['updated_at'] = self.updated_at.isoformat()
         return dic
