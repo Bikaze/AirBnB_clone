@@ -18,6 +18,10 @@ class TestBaseModel(unittest.TestCase):
         # Checking created_at and updated_at object
         self.assertIsInstance(first_model.created_at, datetime)
         self.assertIsInstance(first_model.updated_at, datetime)
+    def test_has_method(self):
+        model = BaseModel()
+        self.assertTrue(hasattr(model, '__str__'))
+        self.assertTrue(hasattr(model, 'to_dict'))
 
     def test_unique_ids(self):
         # Test the uniqueness of Base_models instance's ids
