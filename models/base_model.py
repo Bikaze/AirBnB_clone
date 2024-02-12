@@ -38,8 +38,7 @@ class BaseModel:
         ''' A function that  returns a dictionary with all keys
         of __dict__ of the instance'''
         dic = self.__dict__.copy()
-        if dic:
-            dic['__class__'] = self.__class__.__name__
-            dic['created_at'] = self.created_at.isoformat()
-            dic['updated_at'] = self.updated_at.isoformat()
+        dic['__class__'] = self.__class__.__name__
+        dic['created_at'] = self.created_at.isoformat()
+        dic['updated_at'] = self.updated_at.isoformat()
         return dic
