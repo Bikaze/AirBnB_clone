@@ -5,7 +5,6 @@
     border: 1px solid #DDDDDD;
     border-radius: 4px;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     padding-right: 30px;
 }
@@ -72,4 +71,6 @@ ul {
 
 .locations:hover > .popover, .amenities:hover > .popover {
     visibility: visible;
+    background-color: #fafafa;
+    opacity: 0.9;
 }
