@@ -79,7 +79,7 @@ EOF  help  quit
 $
 ```
 
-## Web static
+## <a href="https://github.com/Bikaze/AirBnB_clone/tree/main/web_static">Web static</a>
 
 After the command interpreter for managing your AirBnB objects, it’s time to make them alive!
 
