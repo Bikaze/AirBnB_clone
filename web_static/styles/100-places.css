@@ -109,17 +109,17 @@ position: relative;
     margin-right: 1em;
 }
 
-.amenities {;
+.amenities, .reviews {;
     margin: 0;
     margin-top: 40px;
 }
 
-.amenities h2 {
+.amenities h2, .reviews h2 {
     font-size: 16px;
     margin: 0;
     text-align: left;
     border-bottom: 1px solid #DDDDDD;
-    padding: 1em;
+    padding-bottom: 1em;
 }
 
 .pet {
@@ -134,7 +134,17 @@ position: relative;
     background-image: url("../images/icon_tv.png");
 }
 
-.amenities ul {
+.amenities ul, .reviews ul {
     list-style: none;
-    padding-left: 1em;
+    padding-left: 0;
+}
+
+.reviews h3 {
+    font-size: 14px;
+margin: 0;
+}
+
+.reviews p {
+    font-size: 12px;
+    margin-top: 0;
 }
