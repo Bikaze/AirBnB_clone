@@ -2,7 +2,7 @@
 <p align="center">AirBnB clone.</p>
 
 <p align="center">
-	<img src="https://github.com/Bikaze/AirBnB_clone/blob/main/misc_stuff/hbnb.png" alt="HolbertonBnB logo">
+	<img src="./misc_stuff/hbnb.png" alt="HolbertonBnB logo">
 </p>
 
 ---
@@ -34,7 +34,7 @@ This abstraction will also allow you to change the type of storage easily withou
 The console will be a tool to validate this storage engine (For now json files are used)
 
 <p align="center">
-    <img src="https://github.com/Bikaze/AirBnB_clone/blob/main/misc_stuff/console.png" alt="Console_storage link">
+    <img src="./misc_stuff/console.png" alt="Console_storage link">
 </p>
 
 **How to use the Console?**
