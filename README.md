@@ -12,8 +12,9 @@
 This project is a clone of the Famous "AirBnB" website (But it doesn't exactly look like it :smile:)<br>
 Hbnb(this project) is a fully fledged Web application, with a database storage, a back-end API, and front-end interfacing in a clone of AirBnB.
 
-**Currently**
-- The project implements the back-end console(Command Interpreter)
+**Currently the implemented features are:**
+- The back-end console(Command Interpreter)
+- The Static web page of our website
 
 ## Command Interpreter(Backend-console) :man_technologist:
 
@@ -30,7 +31,7 @@ The first piece is to manipulate a powerful storage system. This storage engine 
 
 This abstraction will also allow you to change the type of storage easily without updating all of your codebase.
 
-The console will be a tool to validate this storage engine
+The console will be a tool to validate this storage engine (For now json files are used)
 
 <p align="center">
     <img src="https://github.com/Bikaze/AirBnB_clone/blob/main/misc_stuff/console.png" alt="Console_storage link">
