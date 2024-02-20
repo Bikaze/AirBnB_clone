@@ -2,7 +2,7 @@
 <p align="center">AirBnB clone.</p>
 
 <p align="center">
-	<img src="https://github.com/Bikaze/AirBnB_clone/blob/main/misc_stuff/hbnb.png" alt="HolbertonBnB logo">
+	<img src="./misc_stuff/hbnb.png" alt="HolbertonBnB logo">
 </p>
 
 ---
@@ -12,8 +12,9 @@
 This project is a clone of the Famous "AirBnB" website (But it doesn't exactly look like it :smile:)<br>
 Hbnb(this project) is a fully fledged Web application, with a database storage, a back-end API, and front-end interfacing in a clone of AirBnB.
 
-**Currently**
-- The project implements the back-end console(Command Interpreter)
+**Currently the implemented features are:**
+- The back-end console(Command Interpreter)
+- The Static web page of our website
 
 ## Command Interpreter(Backend-console) :man_technologist:
 
@@ -30,10 +31,10 @@ The first piece is to manipulate a powerful storage system. This storage engine 
 
 This abstraction will also allow you to change the type of storage easily without updating all of your codebase.
 
-The console will be a tool to validate this storage engine
+The console will be a tool to validate this storage engine (For now json files are used)
 
 <p align="center">
-    <img src="https://github.com/Bikaze/AirBnB_clone/blob/main/misc_stuff/console.png" alt="Console_storage link">
+    <img src="./misc_stuff/console.png" alt="Console_storage link">
 </p>
 
 **How to use the Console?**
@@ -77,4 +78,24 @@ EOF  help  quit
 (hbnb)
 $
 ```
+
+## <a href="https://github.com/Bikaze/AirBnB_clone/tree/main/web_static">Web static</a>
+
+After the command interpreter for managing your AirBnB objects, it’s time to make them alive!
+
+Before developing a big and complex web application, we build the front end step-by-step.
+
+The first step is to “design” / “sketch” / “prototype” each element:
+
+- Create simple HTML static pages
+- Style guide
+- Fake contents
+- No Javascript
+- No data loaded from anything
+
+**This is our progress. We we've implemented the console and now we're making a static webpage for our website.**
+
+<p align="center">
+    <img src="./misc_stuff/hbnb_step1.png" alt="front-end html">
+</p>
 
