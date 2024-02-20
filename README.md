@@ -93,9 +93,8 @@ The first step is to “design” / “sketch” / “prototype” each element:
 - No Javascript
 - No data loaded from anything
 
-**This is our progress. We we've implemented the console and now we're making a static webpage for our website.**
+**This is our progress. We we've implemented the console and now we're making a static webpage for our website**
 
 <p align="center">
     <img src="./misc_stuff/hbnb_step1.png" alt="front-end html">
 </p>
-
