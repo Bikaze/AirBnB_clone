@@ -1,0 +1,24 @@
+<<<<<<< HEAD
+footer{
+        background-color:white;
+        height:60px;
+        width:100%;
+        border-top: 1px #CCCCCC;
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        place-content: center;
+        display: grid;
+=======
+footer {
+    color: black;
+    height: 60px;
+    width: 100%;
+    border-top: 1px solid #CCCCCC;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+>>>>>>> 3d8db67b07f4934ac52b6b40fdbcb925bef2c159
+}
